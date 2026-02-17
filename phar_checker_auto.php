@@ -394,7 +394,7 @@ if ($argc < 2) {
     exit(1);
 }
 
-$directory = $argv[1];
+$directory = "";
 $method = isset($argv[2]) ? $argv[2] : 'all';
 
 $checker = new PharChecker($method);
