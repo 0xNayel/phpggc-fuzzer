@@ -1,5 +1,25 @@
 #!/usr/bin/env php
 <?php
+
+
+require_once 'phar_checker_auto.php';
+
+// Create instance
+$checker = new PharChecker('all');  // or 'file_get', 'fopen', etc.
+
+// Run it
+$result = $checker->run('./phar_gadgets');
+
+// Use result
+if ($result) {
+    echo "FOUND: " . $result['phar'] . "\n";
+    echo "Method: " . $result['method'] . "\n";
+    echo "Path: " . $result['path'] . "\n";
+} else {
+    echo "No vulnerable gadgets found";
+}
+
+
 /**
  * PHAR Gadget Chain Checker - PHP Version
  * 
